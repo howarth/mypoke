@@ -1,0 +1,3 @@
+include poker/config/deployment.ini_tmpl
+recursive-include poker/public *
+recursive-include poker/templates *

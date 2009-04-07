@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="c8f96903-047e-4b6c-904e-260040c488a6" kpf_version="4" name="poker.kpf">
+<preference-set idref="c8f96903-047e-4b6c-904e-260040c488a6">
+  <boolean id="import_live">1</boolean>
+</preference-set>
+</project>

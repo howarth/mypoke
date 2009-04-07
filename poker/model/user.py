@@ -4,23 +4,17 @@ from pylons.controllers.util import abort, redirect_to
 
 class User(object):
     
-    def login(self, post_email='', post_password=''):
-        if(post_email == '' or post_password==''):
-            return False
+    def valid_login(self, post_email='', post_password=''):
+        user = meta.Session.query(User).filter_by(email=post_email).first()
+        if user.password == post_password:
+            return user
         else:
-            user = meta.Session.query(User).filter_by(email=post_email).first()
-            if user.password == post_password:
-                session['user'] = user.id
-                session.save()
-                return redirect_to('/account')
-            else:
-                return False
+            return False
     
     #Function checks if user_id is a valid user
-    def auth(self):
-        user_id = session.get('user')
+    def valid_user(self, user_id):
         user = meta.Session.query(User).filter_by(id=user_id).first()
         if user:
-            pass
+            return user
         else:
-            return redirect_to('/login')
+            return False

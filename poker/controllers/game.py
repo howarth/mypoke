@@ -12,7 +12,8 @@ log = logging.getLogger(__name__)
 class GameController(BaseController):
     
     def __before__(self):
-        User().auth()
+        user_id = session.get('user')
+        User().valid_user(user_id)
             
     def index(self, gameid=''):
         

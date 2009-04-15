@@ -1,3 +1,9 @@
+<%inherit file="/base.mako" />
+
+<%def name="head_tags()">
+  
+</%def>
+
 <form action='/login' method='post'>
 
 Email: <input type="text" name="email" /><br/>

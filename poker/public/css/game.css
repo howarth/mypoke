@@ -1,0 +1,81 @@
+.gamemenu{
+    margin-right:5px;
+    padding:5px;
+}
+.gamecontent{
+    margin-top:5px;
+    padding:10px;
+    border:1px solid #333;
+    border-top-width:10px;
+    display:none;   
+}
+.playerHolder{
+    width:452px;
+    border:1px solid #333;
+    margin:5px 2px;
+    float:left;
+    font-size:30px;
+    padding:5px;
+}
+.playerHolder .name{
+    float:left;
+    width:175px;
+}
+.playerHolder .in_play{
+    float:left;
+    width:100px;
+    margin:0px 10px;
+    text-align:center;
+}
+.playerHolder .in_pot{
+    text-align:right;
+    float:left;
+    width:100px;
+}
+.currPlayer{
+    margin-bottom:30px;
+    border-bottom: 1px solid #333;
+    padding:5px;
+    font-size:30px;
+}
+.currPlayer input{
+    float:left;
+    width:100px;
+    padding:0px;
+    margin:0px;
+    font-size:30px;
+    padding:5px;
+    border:1px solid grey;
+
+
+}
+.currPlayer button{
+    float:left;
+    border:none;
+    margin-right:50px;
+    font-size:15px;
+    padding:5px 20px;
+    height:48px;
+}
+.currPlayer .name{
+    font-size:40px;
+    float:left;
+    padding:5px;
+    margin-right:75px;
+}
+.currPlayer .call{
+    background-color:blue;
+    color: #FFF;
+    
+}
+.currPlayer .bet{
+    background-color:green;
+    color:#FFF;
+}
+
+.currPlayer .fold{
+    color:#FFF;
+   
+    background-color:red;
+    float:left;
+}

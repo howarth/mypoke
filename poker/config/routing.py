@@ -19,13 +19,14 @@ def make_map():
     map.connect('/error/{action}/{id}', controller='error')
 
     # CUSTOM ROUTES HERE
-    map.connect('/game/:gameid', controller='game', action='index')
+    map.connect('/game/:game_id', controller='game', action='index')
     
     map.connect('/login', controller='account', action='login')
     map.connect('/login/', controller='account', action='login')
     map.connect('/logout', controller='account', action='logout')
     map.connect('/logout/', controller='account', action='logout')
     
+    map.connect('/', controller='index', action='index')
     map.connect('/{controller}/{action}')
     map.connect('/{controller}/{action}/')
     map.connect('/{controller}/', action='index')

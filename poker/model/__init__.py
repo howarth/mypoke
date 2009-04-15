@@ -3,7 +3,7 @@ import sqlalchemy as sa
 from sqlalchemy import orm
 from sqlalchemy.databases.mysql import MSBigInteger
 from poker.model import meta
-from poker.model import user, game
+from poker.model import user, game, player
 
 def init_model(engine):
     """Call me before using any of the tables or classes in the model"""
@@ -26,6 +26,7 @@ table_user = sa.Table("user", meta.metadata,
 table_game = sa.Table("game", meta.metadata,
                       sa.Column("id", MSBigInteger, primary_key=True),
                       sa.Column("user_id", MSBigInteger),
+                      sa.Column("name", sa.types.String(32)),
                       sa.Column("players",sa.types.Integer(2)),
                       sa.Column("sb",sa.types.Integer(11)),
                       sa.Column("bb",sa.types.Integer(11)),
@@ -35,11 +36,27 @@ table_game = sa.Table("game", meta.metadata,
                       sa.Column("dealer",sa.types.Integer(2)),
                       sa.Column("sb_on",sa.types.Integer(2)),
                       sa.Column("bb_on",sa.types.Integer(2)),
+                      sa.Column("highestbet", sa.types.Integer(11)),
+                      sa.Column("highestraise", sa.types.Integer(11)),
+                      sa.Column("pot", sa.types.Integer(11)),
                       )
 
+table_player = sa.Table("player", meta.metadata,
+                      sa.Column("id", MSBigInteger, primary_key=True),
+                      sa.Column("name", sa.types.String(32)),
+                      sa.Column("game_id", MSBigInteger),
+                      sa.Column("position", sa.types.Integer(2)),
+                      sa.Column("in_bank", sa.types.Integer(11)),
+                      sa.Column("in_play", sa.types.Integer(11)),
+                      sa.Column("in_pot", sa.types.Integer(11)),
+                      sa.Column("round_bet", sa.types.Integer(11)),
+                      sa.Column("folded", sa.types.Integer(1)),
+                      )
+
+
 orm.mapper(user.User, table_user)
-    
 orm.mapper(game.Game, table_game)
+orm.mapper(player.Player, table_player)
 
 
 ## Non-reflected tables may be defined and mapped at module level
